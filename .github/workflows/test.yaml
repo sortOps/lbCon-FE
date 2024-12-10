@@ -1,4 +1,4 @@
-name: lbCon FE CICD Action
+name: lbCon FE CI/CD Action
 
 on:
   push:
