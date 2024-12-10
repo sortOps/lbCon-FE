@@ -1,10 +1,8 @@
-name: Frontend CI/CD
+name: lbCon FE CICD Action
 
 on:
   push:
     branches: [ main ]
-    paths:
-      - 'frontend/**'
 
 env:
   AWS_REGION: ap-northeast-2
