@@ -27,12 +27,17 @@ jobs:
           cache-dependency-path: './frontend/package-lock.json'
 
       - name: Install dependencies
+        working-directory: ./frontend
         run: npm ci
 
       - name: Build Next.js app
+        working-directory: ./frontend
         run: npm run build
         env:
           NODE_ENV: production
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+          NEXT_PUBLIC_ENCRYPTION_KEY: ${{ secrets.NEXT_PUBLIC_ENCRYPTION_KEY }}
+          NEXT_PUBLIC_PASSWORD_SALT: ${{ secrets.NEXT_PUBLIC_PASSWORD_SALT }}
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
